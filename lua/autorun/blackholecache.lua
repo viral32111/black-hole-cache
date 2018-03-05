@@ -14,30 +14,27 @@ See the License for the specific language governing permissions and
 limitations under the License.
 ---------------------------------------------------------------------------]]
 
-local Version = "1.0.0"
+BlackHoleCache = {}
+BlackHoleCache.Version = 002
+BlackHoleCache.Name = "Black Hole Cache"
 
-if ( SERVER ) then
-	print("[Black Hole Cache] Loaded Version: " .. Version )
-end
-
-if ( CLIENT ) then
-	print("Thanks for using Black Hole Cache, Created by viral32111!")
-end
-
-hook.Add( "PlayerConnect", "BlackHoleCacheVersionCheck", function()
-	http.Fetch( "https://raw.githubusercontent.com/viral32111/black-hole-cache/master/VERSION.txt", function( body, len, headers, code )
-		local body = string.gsub( body, "\n", "" )
-		if ( body == Version ) then
-			print( "[Black Hole Cache] You are running the most recent version of Black Hole Cache!" )
-		elseif ( body == "404: Not Found" ) then
-			print( "[Black Hole Cache] Version page does not exist")
+hook.Add("PlayerConnect", BlackHoleCache.Name .. "VersionCheck", function()
+	http.Fetch("https://raw.githubusercontent.com/viral32111/black-hole-cache/master/README.md", function( LatestVersion )
+		local LatestVersion = tonumber( string.sub( LatestVersion, string.len( BlackHoleCache.Name )+18, string.len( BlackHoleCache.Name )+21 ) )
+		if ( LatestVersion == BlackHoleCache.Version ) then
+			print("[" .. BlackHoleCache.Name .. "] You are running the latest version!")
+		elseif ( LatestVersion > BlackHoleCache.Version ) then
+			print("[" .. BlackHoleCache.Name .. "] You are running an outdated version! (Latest: " .. LatestVersion .. ", Current: " .. BlackHoleCache.Version .. ")")
+		elseif ( LatestVersion < BlackHoleCache.Version ) then
+			print("[" .. BlackHoleCache.Name .. "] You are running a future version, Please reinstall the addon. (Latest: " .. LatestVersion .. ", Current: " .. BlackHoleCache.Version .. ")")
 		else
-			print( "[Black Hole Cache] You are using outdated version of Black Hole Cache! (Latest: " .. body .. ", Current: " .. Version .. ")" )
+			print("[" .. BlackHoleCache.Name .. "] Failed to parse addon version! (Latest: " .. LatestVersion .. ", Current: " .. BlackHoleCache.Version .. ")")
 		end
-	end,
-	function( error )
-		print( "[Black Hole Cache] Failed to get addon version! (" .. error .. ")" )
+	end, function( error )
+		print("[" .. BlackHoleCache.Name .. "] Failed to get addon version! (" .. error .. ")")
 	end )
 
-	hook.Remove( "PlayerConnect", "BlackHoleCacheVersionCheck" )
+	hook.Remove("PlayerConnect", BlackHoleCache.Name .. "VersionCheck")
 end )
+
+print("[" .. BlackHoleCache.Name .. "] Loaded Version: " .. BlackHoleCache.Version )

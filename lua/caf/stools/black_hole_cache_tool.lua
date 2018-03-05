@@ -15,10 +15,10 @@ limitations under the License.
 ---------------------------------------------------------------------------]]
 
 TOOL.Category	= "Spacebuild Addons"
-TOOL.Name = "#Devices"
+TOOL.Name = "#Black Hole Cache"
 
-TOOL.DeviceName = "Devices"
-TOOL.DeviceNamePlural = "Devices"
+TOOL.DeviceName = "Black Hole Cache"
+TOOL.DeviceNamePlural = "Black Hole Cache"
 TOOL.ClassName = "black_hole_cache_tool"
 
 TOOL.DevSelect = true
