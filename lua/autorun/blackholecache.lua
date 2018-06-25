@@ -15,7 +15,7 @@ limitations under the License.
 ---------------------------------------------------------------------------]]
 
 BlackHoleCache = {}
-BlackHoleCache.Version = 002
+BlackHoleCache.Version = 003
 BlackHoleCache.Name = "Black Hole Cache"
 
 hook.Add("PlayerConnect", BlackHoleCache.Name .. "VersionCheck", function()

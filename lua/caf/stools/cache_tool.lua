@@ -33,7 +33,7 @@ TOOL.Limit = 3
 CAFToolSetup.SetLang("Cache","Create Devices attached to any surface.","Left-Click: Spawn a Device. Reload: Repair Device.")
 
 local function cache_func( ent, type ) 
-	local volume = 2147483647
+	local volume = 2140000000
 	CAF.GetAddon("Resource Distribution").AddResource(ent, "oxygen", volume)
 	CAF.GetAddon("Resource Distribution").AddResource(ent, "carbon dioxide", volume)
 	CAF.GetAddon("Resource Distribution").AddResource(ent, "energy", volume)
@@ -43,6 +43,11 @@ local function cache_func( ent, type )
 	CAF.GetAddon("Resource Distribution").AddResource(ent, "liquid nitrogen", volume)
 	CAF.GetAddon("Resource Distribution").AddResource(ent, "water", volume)
 	CAF.GetAddon("Resource Distribution").AddResource(ent, "steam", volume)
+	CAF.GetAddon("Resource Distribution").AddResource(ent, "hot liquid nitrogen", volume)
+	CAF.GetAddon("Resource Distribution").AddResource(ent, "methane", volume)
+	CAF.GetAddon("Resource Distribution").AddResource(ent, "propane", volume)
+	CAF.GetAddon("Resource Distribution").AddResource(ent, "deuterium", volume)
+	CAF.GetAddon("Resource Distribution").AddResource(ent, "tritium", volume)
 	ent.MAXRESOURCE = volume
 	ent.mass = 10
 	return 10, 99999999

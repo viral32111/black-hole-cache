@@ -1,8 +1,24 @@
+--[[-------------------------------------------------------------------------
+Copyright 2018 viral32111
+
+Licensed under the Apache License, Version 2.0 (the "License");
+you may not use this file except in compliance with the License.
+You may obtain a copy of the License at
+
+    http://www.apache.org/licenses/LICENSE-2.0
+
+Unless required by applicable law or agreed to in writing, software
+distributed under the License is distributed on an "AS IS" BASIS,
+WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+See the License for the specific language governing permissions and
+limitations under the License.
+---------------------------------------------------------------------------]]
+
 AddCSLuaFile("cl_init.lua")
 AddCSLuaFile("shared.lua")
+include("shared.lua")
+
 util.PrecacheSound("ambient.steam01")
---Extra Resources Added by DataSchmuck for the McBuild's Community
-include('shared.lua')
 
 function ENT:Initialize()
     self.BaseClass.Initialize(self)
@@ -254,20 +270,6 @@ function ENT:LeakWater()
     end
 end
 
-function ENT:UpdateMass()
-    --[[local RD = CAF.GetAddon("Resource Distribution")
-     local mul = 0.5
-     local div = math.Round(RD.GetNetworkCapacity(self, "carbon dioxide")/self.MAXRESOURCE)
-     local mass = self.mass + ((RD.GetResourceAmount(self, "carbon dioxide") * mul)/div) -- self.mass = default mass + need a good multiplier
-     local phys = self:GetPhysicsObject()
-     if (phys:IsValid()) then
-         if phys:GetMass() ~= mass then
-             phys:SetMass(mass)
-             phys:Wake()
-         end
-     end]]
-end
-
 function ENT:Think()
     self.BaseClass.Think(self)
 
@@ -299,7 +301,6 @@ function ENT:Think()
     if not (WireAddon == nil) then
         self:UpdateWireOutput()
     end
-    self:UpdateMass()
     self:NextThink(CurTime() + 1)
     return true
 end

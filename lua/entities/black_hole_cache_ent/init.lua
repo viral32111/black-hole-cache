@@ -14,10 +14,9 @@ See the License for the specific language governing permissions and
 limitations under the License.
 ---------------------------------------------------------------------------]]
 
-AddCSLuaFile( "cl_init.lua" )
-AddCSLuaFile( "shared.lua" )
-
-include('shared.lua')
+AddCSLuaFile("cl_init.lua")
+AddCSLuaFile("shared.lua")
+include("shared.lua")
 
 local Increment = 1000000
 

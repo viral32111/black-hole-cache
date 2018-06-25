@@ -14,12 +14,11 @@ See the License for the specific language governing permissions and
 limitations under the License.
 ---------------------------------------------------------------------------]]
 
-AddCSLuaFile( "cl_init.lua" )
-AddCSLuaFile( "shared.lua" )
+AddCSLuaFile("cl_init.lua")
+AddCSLuaFile("shared.lua")
+include("shared.lua")
 
-include('shared.lua')
-
-local Increment = 2147483647
+local Increment = 2140000000
 
 function ENT:Initialize()
 	self.BaseClass.Initialize(self)
@@ -116,6 +115,11 @@ function ENT:BlackHoleCache()
 		self:SupplyResource("carbon dioxide", inc)
 		self:SupplyResource("steam", inc)
 		self:SupplyResource("hydrogen", inc)
+		self:SupplyResource("hot liquid nitrogen", inc)
+		self:SupplyResource("methane", inc)
+		self:SupplyResource("propane", inc)
+		self:SupplyResource("deuterium", inc)
+		self:SupplyResource("tritium", inc)
 	else
 		self:TurnOff()
 	end

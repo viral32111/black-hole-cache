@@ -34,17 +34,22 @@ CAFToolSetup.SetLang("OP Black Hole Cache","Create Devices attached to any surfa
 
 local function op_black_hole_cache_func( ent, type ) 
 	if type == "op_black_hole_cache_ent" then
-		CAF.GetAddon("Resource Distribution").AddResource(ent, "oxygen", 2147483647) -- Max 32 Bit value, Don't go any bigger or it starts bugging out :/
-		CAF.GetAddon("Resource Distribution").AddResource(ent, "nitrogen", 2147483647)
-		CAF.GetAddon("Resource Distribution").AddResource(ent, "water", 2147483647)
-		CAF.GetAddon("Resource Distribution").AddResource(ent, "hydrogen", 2147483647)
-		CAF.GetAddon("Resource Distribution").AddResource(ent, "liquid nitrogen", 2147483647)
-		CAF.GetAddon("Resource Distribution").AddResource(ent, "carbon dioxide", 2147483647)
-		CAF.GetAddon("Resource Distribution").AddResource(ent, "steam", 2147483647)
-		CAF.GetAddon("Resource Distribution").AddResource(ent, "heavy water", 2147483647)
-		CAF.GetAddon("Resource Distribution").AddResource(ent, "energy", 2147483647)
+		local volume = 2140000000
+		CAF.GetAddon("Resource Distribution").AddResource(ent, "oxygen", volume)
+		CAF.GetAddon("Resource Distribution").AddResource(ent, "nitrogen", volume)
+		CAF.GetAddon("Resource Distribution").AddResource(ent, "water", volume)
+		CAF.GetAddon("Resource Distribution").AddResource(ent, "hydrogen", volume)
+		CAF.GetAddon("Resource Distribution").AddResource(ent, "liquid nitrogen", volume)
+		CAF.GetAddon("Resource Distribution").AddResource(ent, "carbon dioxide", volume)
+		CAF.GetAddon("Resource Distribution").AddResource(ent, "steam", volume)
+		CAF.GetAddon("Resource Distribution").AddResource(ent, "heavy water", volume)
+		CAF.GetAddon("Resource Distribution").AddResource(ent, "energy", volume)
+		CAF.GetAddon("Resource Distribution").AddResource(ent, "hot liquid nitrogen", volume)
+		CAF.GetAddon("Resource Distribution").AddResource(ent, "methane", volume)
+		CAF.GetAddon("Resource Distribution").AddResource(ent, "propane", volume)
+		CAF.GetAddon("Resource Distribution").AddResource(ent, "deuterium", volume)
+		CAF.GetAddon("Resource Distribution").AddResource(ent, "tritium", volume)
 		ent.mass = 10
-
 		return 10, 9999999 	
 	end
 end
