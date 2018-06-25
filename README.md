@@ -3,11 +3,10 @@
 
 Black Hole Cache for Spacebuild 3!
 
-Provides basic resources needed for space travel, No energy though!
-
-Also provides Massive Storage for ALL resources.
-
-Also provides Admin Black Hole Cache with ALL resources.
+Includes 3 Entities:
+* Normal black hole cache provides basic resources needed for space travel.
+* Massive Storage Cache for ALL resources.
+* OP Black Hole Cache provides ALL resources.
 
 Usage:
 * Press E to toggle on/off.
