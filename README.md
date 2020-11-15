@@ -1,21 +1,24 @@
 # Black Hole Cache
-#### Version: 003
 
-Black Hole Cache for Spacebuild 3!
+An addon for [Garry's Mod](https://store.steampowered.com/app/4000/Garrys_Mod/) that adds an infinite resource generator and storage device to the popular [Spacebuild](https://github.com/spacebuild/spacebuild) addon.
 
-Includes 3 Entities:
-* Normal black hole cache provides basic resources needed for space travel.
-* Massive Storage Cache for ALL resources.
-* OP Black Hole Cache provides ALL resources.
+The two new devices can be found under the `Spacebuild Addons` category in the `CAF` spawnmenu tool tab, the usage is the same as the other resource distribution devices.
 
-Usage:
-* Press E to toggle on/off.
-* Use wiremod and connect to the On input.
+You can download the latest release [here](https://github.com/viral32111/black-hole-cache/archive/1.2.0.zip). Note that [Wiremod](https://github.com/wiremod/wire) and [Spacebuild](https://github.com/spacebuild/spacebuild) must be installed for this addon to work.
 
-Dependencies:
-- [Spacebuild 3](https://github.com/spacebuild/spacebuild)
-- [Wiremod](https://github.com/wiremod/wire)
+## License
 
-[Donate](https://viral32111.com/donate)
+Copyright (C) 2018 - 2020 viral32111 (https://viral32111.com)
 
-###### [Copyright 2018 - 2020 viral32111](LICENSE.txt)
+This program is free software: you can redistribute it and/or modify
+it under the terms of the GNU Affero General Public License as published by
+the Free Software Foundation, either version 3 of the License, or
+(at your option) any later version.
+
+This program is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
+GNU Affero General Public License for more details.
+
+You should have received a copy of the GNU Affero General Public License
+along with this program. If not, see https://www.gnu.org/licenses/.
