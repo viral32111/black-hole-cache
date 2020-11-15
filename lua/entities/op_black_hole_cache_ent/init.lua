@@ -137,4 +137,3 @@ function ENT:Think()
 	self.Entity:NextThink( CurTime() + 0.1 )
 	return true
 end
-
