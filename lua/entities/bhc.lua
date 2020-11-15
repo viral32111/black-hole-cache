@@ -23,12 +23,18 @@ ENT.Spawnable = true
 -- Prevent the client from executing beyond this point
 if CLIENT then return end
 
--- Fetch the Resource Distribution table
+-- Get the Resource Distribution table
 local resourceDistribution = CAF.GetAddon( "Resource Distribution" )
+
+-- Get a table containing the names of all registered resources
+local resourceNames = resourceDistribution.GetRegisteredResources()
 
 -- Create colours to use for status indication
 local colorRed = Color( 255, 0, 0 )
 local colorGreen = Color( 0, 255, 0 )
+
+-- Store the largest possible number that can be expressed (this is considered infinity)
+local infinity = math.huge
 
 -- Called when the entity is spawned
 function ENT:Initialize()
@@ -54,7 +60,7 @@ function ENT:Initialize()
 
 	end
 
-	-- Register with Resource Distribution
+	-- Register with Resource Distribution so we can link
 	resourceDistribution.RegisterNonStorageDevice( self )
 
 	-- Controls if the entity should supply resources
@@ -87,8 +93,16 @@ function ENT:Think()
 	-- Should we be supplying resources?
 	if self.shouldSupply then
 
-		-- Defy the fundamental laws of thermodynamics and create energy from nothing
-		resourceDistribution.SupplyResource( self, "energy", 1 )
+		-- Loop for the amount of reigstered resources
+		for index = 1, #resourceNames do
+
+			-- Fetch the name of the resource for this iteration
+			local name = resourceNames[ index ]
+
+			-- Defy the fundamental laws of thermodynamics to create an infinite resource from nothing
+			resourceDistribution.SupplyResource( self, name, infinity )
+
+		end
 
 	end
 
