@@ -4,7 +4,7 @@ An addon for [Garry's Mod](https://store.steampowered.com/app/4000/Garrys_Mod/) 
 
 The two new devices can be found under the `Spacebuild Addons` category in the `CAF` spawnmenu tool tab, the usage is the same as the other resource distribution devices.
 
-You can download the latest release [here](https://github.com/viral32111/black-hole-cache/archive/1.2.0.zip). Note that [Wiremod](https://github.com/wiremod/wire) and [Spacebuild](https://github.com/spacebuild/spacebuild) must be installed for this addon to work.
+You can [download the latest release](https://github.com/viral32111/black-hole-cache/archive/1.2.0.zip) for legacy installation, or [subscribe on the Steam Workshop](https://steamcommunity.com/sharedfiles/filedetails/?id=1300331014) for easy installation. Note that [Wiremod](https://github.com/wiremod/wire) and [Spacebuild](https://github.com/spacebuild/spacebuild) must be installed for this addon to work.
 
 ## License
 
