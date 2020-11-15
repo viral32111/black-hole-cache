@@ -36,6 +36,9 @@ local colorGreen = Color( 0, 255, 0 )
 -- Store the largest possible number that can be expressed (this is considered infinity)
 local infinity = math.huge
 
+-- Store a local copy of this function for optimisation
+local currentTime = CurTime
+
 -- Called when the entity is spawned
 function ENT:Initialize()
 
@@ -150,7 +153,7 @@ function ENT:Think()
 	end
 
 	-- Set the next tick to be one second from now
-	self:NextThink( CurTime() + 1 )
+	self:NextThink( currentTime() + 1 )
 
 	-- Apply the new tick time
 	return true
