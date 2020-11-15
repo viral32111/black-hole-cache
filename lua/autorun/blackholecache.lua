@@ -20,7 +20,7 @@ BlackHoleCache = {}
 BlackHoleCache.Version = 003
 BlackHoleCache.Name = "Black Hole Cache"
 
-hook.Add("PlayerConnect", BlackHoleCache.Name .. "VersionCheck", function()
+--[[ hook.Add("PlayerConnect", BlackHoleCache.Name .. "VersionCheck", function()
 	http.Fetch("https://raw.githubusercontent.com/viral32111/black-hole-cache/master/README.md", function( LatestVersion )
 		local LatestVersion = tonumber( string.sub( LatestVersion, string.len( BlackHoleCache.Name )+18, string.len( BlackHoleCache.Name )+21 ) )
 		if ( LatestVersion == BlackHoleCache.Version ) then
@@ -37,6 +37,6 @@ hook.Add("PlayerConnect", BlackHoleCache.Name .. "VersionCheck", function()
 	end )
 
 	hook.Remove("PlayerConnect", BlackHoleCache.Name .. "VersionCheck")
-end )
+end ) ]]
 
 print("[" .. BlackHoleCache.Name .. "] Loaded Version: " .. BlackHoleCache.Version )
