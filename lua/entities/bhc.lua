@@ -60,6 +60,17 @@ function ENT:Initialize()
 
 	end
 
+	-- Is Wiremod installed?
+	if WireAddon then
+
+		-- Create the inputs
+		Wire_CreateInputs( self, { "Activate" } )
+
+		-- Create the outputs
+		Wire_CreateOutputs( self, { "Active" } )
+
+	end
+
 	-- Register with Resource Distribution so we can link
 	resourceDistribution.RegisterNonStorageDevice( self )
 
@@ -82,6 +93,38 @@ function ENT:Use( causer, proxy, type, value )
 
 		-- Set new colour to indicate status
 		self:SetColor( self.shouldSupply and colorGreen or colorRed )
+
+		-- Is Wiremod installed?
+		if WireAddon then
+
+			-- Update the active output
+			Wire_TriggerOutput( self, "Active", ( self.shouldSupply and 1 or 0 ) )
+
+		end
+
+	end
+
+end
+
+-- Called when a Wiremod input changes
+function ENT:TriggerInput( name, value )
+
+	-- Is it the activate input?
+	if name == "Activate" then
+
+		-- Toggle the status
+		self.shouldSupply = tobool( value )
+
+		-- Set new colour to indicate status
+		self:SetColor( self.shouldSupply and colorGreen or colorRed )
+
+		-- Is Wiremod installed?
+		if WireAddon then
+
+			-- Update the active output
+			Wire_TriggerOutput( self, "Active", value )
+
+		end
 
 	end
 
