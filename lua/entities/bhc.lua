@@ -23,11 +23,22 @@ ENT.Spawnable = true
 -- Prevent the client from executing beyond this point
 if CLIENT then return end
 
--- Get the Resource Distribution table
-local resourceDistribution = CAF.GetAddon( "Resource Distribution" )
+-- Placeholder for the Resource Distribution table
+local resourceDistribution = nil
 
--- Get a table containing the names of all registered resources
-local resourceNames = resourceDistribution.GetRegisteredResources()
+-- Placeholder for the table of registered resource names
+local resourceNames = nil
+
+-- Is Spacebuild installed?
+if CAF then
+
+	-- Update the variable with the Resource Distribution table
+	resourceDistribution = CAF.GetAddon( "Resource Distribution" )
+
+	-- Update the variable with a table containing the names of all registered resources
+	resourceNames = resourceDistribution.GetRegisteredResources()
+
+end
 
 -- Create colours to use for status indication
 local colorRed = Color( 255, 0, 0 )
@@ -74,8 +85,13 @@ function ENT:Initialize()
 
 	end
 
-	-- Register with Resource Distribution so we can link
-	resourceDistribution.RegisterNonStorageDevice( self )
+	-- Is Spacebuild installed?
+	if CAF then
+
+		-- Register with Resource Distribution so we can link
+		resourceDistribution.RegisterNonStorageDevice( self )
+
+	end
 
 	-- Controls if the entity should supply resources
 	self.shouldSupply = false
@@ -121,13 +137,8 @@ function ENT:TriggerInput( name, value )
 		-- Set new colour to indicate status
 		self:SetColor( self.shouldSupply and colorGreen or colorRed )
 
-		-- Is Wiremod installed?
-		if WireAddon then
-
-			-- Update the active output
-			Wire_TriggerOutput( self, "Active", value )
-
-		end
+		-- Update the active output
+		Wire_TriggerOutput( self, "Active", value )
 
 	end
 
@@ -136,8 +147,8 @@ end
 -- Called every tick
 function ENT:Think()
 
-	-- Should we be supplying resources?
-	if self.shouldSupply then
+	-- Should we be supplying resources and is Spacebuild installed?
+	if self.shouldSupply and CAF then
 
 		-- Loop for the amount of reigstered resources
 		for index = 1, #resourceNames do
