@@ -8,6 +8,8 @@ You can [download the latest release](https://github.com/viral32111/black-hole-c
 
 This addon was heavily inspired by [StargateFreak's Black Hole Cache](https://steamcommunity.com/sharedfiles/filedetails/?id=139990402).
 
+The model used is [Mikki](https://steamcommunity.com/profiles/76561198098764577)'s [Atomic Generator](https://steamcommunity.com/sharedfiles/filedetails/?id=1319372842), all original credit for it goes to them.
+
 ## License
 
 Copyright (C) 2018 - 2020 [viral32111](https://viral32111.com/).
