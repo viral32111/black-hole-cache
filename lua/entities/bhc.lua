@@ -65,8 +65,9 @@ local colorGreen = Color( 0, 255, 0 )
 -- Store the largest possible number before infinity: (2^1023)*1.9999999999999998
 local largestNumber = 179769313486231570814527423731704356798070567525844996598917476803157260780028538760589558632766878171540458953514382464234321326889464182768467546703537516986049910576551282076245490090389328944075868508455133942304583236903222948165808559332123348274797826204144723168738177180919299881250404026184124858368
 
--- Store a local copy of this function for optimisation
-local currentTime = CurTime
+-- Store a local copy of global functions for optimisation
+local CurTime = CurTime
+local tobool = tobool
 
 -- Called when the entity is spawned
 function ENT:Initialize()
@@ -96,7 +97,7 @@ function ENT:Initialize()
 	if WireAddon then
 
 		-- Create the inputs
-		Wire_CreateInputs( self, { "Activate" } )
+		Wire_CreateInputs( self, { "Activate", "Disable Use" } )
 
 		-- Create the outputs
 		Wire_CreateOutputs( self, { "Active" } )
@@ -114,6 +115,9 @@ function ENT:Initialize()
 	-- Controls if the entity should supply resources
 	self.shouldSupply = false
 
+	-- Controls if the entity cannot be +use'd
+	self.disableUse = false
+
 	-- Set the default colour to red
 	self:SetColor( colorRed )
 
@@ -122,8 +126,8 @@ end
 -- Called when a player uses the entity
 function ENT:Use( causer, proxy, type, value )
 
-	-- Is the causing entity a player?
-	if causer:IsPlayer() then
+	-- Is the causing entity a player & is +use not disabled?
+	if causer:IsPlayer() and not self.disableUse then
 
 		-- Toggle the status
 		self.shouldSupply = not self.shouldSupply
@@ -158,6 +162,12 @@ function ENT:TriggerInput( name, value )
 		-- Update the active output
 		Wire_TriggerOutput( self, "Active", value )
 
+	-- Is it the disable use input?
+	elseif name == "Disable Use" then
+
+		-- Update the internal variable with the value provided
+		self.disableUse = tobool( value )
+
 	end
 
 end
@@ -182,7 +192,7 @@ function ENT:Think()
 	end
 
 	-- Set the next tick to be one second from now
-	self:NextThink( currentTime() + 1 )
+	self:NextThink( CurTime() + 1 )
 
 	-- Apply the new tick time
 	return true
