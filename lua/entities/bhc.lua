@@ -44,8 +44,8 @@ end
 local colorRed = Color( 255, 0, 0 )
 local colorGreen = Color( 0, 255, 0 )
 
--- Store the largest possible number that can be expressed (this is considered infinity)
-local infinity = math.huge
+-- Store the largest possible number before infinity: (2^1023)*1.9999999999999998
+local largestNumber = 179769313486231570814527423731704356798070567525844996598917476803157260780028538760589558632766878171540458953514382464234321326889464182768467546703537516986049910576551282076245490090389328944075868508455133942304583236903222948165808559332123348274797826204144723168738177180919299881250404026184124858368
 
 -- Store a local copy of this function for optimisation
 local currentTime = CurTime
@@ -157,7 +157,7 @@ function ENT:Think()
 			local name = resourceNames[ index ]
 
 			-- Defy the fundamental laws of thermodynamics to create an infinite resource from nothing
-			resourceDistribution.SupplyResource( self, name, infinity )
+			resourceDistribution.SupplyResource( self, name, largestNumber )
 
 		end
 
