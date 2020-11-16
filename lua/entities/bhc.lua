@@ -73,7 +73,7 @@ local tobool = tobool
 function ENT:Initialize()
 
 	-- Set the model
-	self:SetModel( "models/props_borealis/bluebarrel001.mdl" )
+	self:SetModel( "models/atomic_generator/atomic_generator.mdl" )
 
 	-- Initalise physics
 	self:SetMoveType( MOVETYPE_VPHYSICS )
