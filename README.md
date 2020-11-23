@@ -12,7 +12,7 @@ This addon was heavily inspired by [StargateFreak's Black Hole Cache](https://st
 
 The model used is [Mikki](https://steamcommunity.com/profiles/76561198098764577)'s [Atomic Generator](https://steamcommunity.com/sharedfiles/filedetails/?id=1319372842), all original credit for it goes to them.
 
-Sound effects obtained from [ZapSplat](https://www.zapsplat.com) under their [Standard License](https://www.zapsplat.com/license-type/standard-license/).
+[Dark machine tone](https://www.zapsplat.com/music/science-fiction-dark-machine-tone/) sound effect obtained from [ZapSplat](https://www.zapsplat.com) under their [Standard License](https://www.zapsplat.com/license-type/standard-license/).
 
 ## License
 
