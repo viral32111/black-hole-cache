@@ -6,9 +6,13 @@ The two new devices can be found under the `Spacebuild Addons` category in the `
 
 You can [download the latest release](https://github.com/viral32111/black-hole-cache/archive/1.2.0.zip) for legacy installation, or [subscribe on the Steam Workshop](https://steamcommunity.com/sharedfiles/filedetails/?id=1300331014) for easy installation. Note that [Wiremod](https://github.com/wiremod/wire) and [Spacebuild](https://github.com/spacebuild/spacebuild) must be installed for this addon to work.
 
+## Credit
+
 This addon was heavily inspired by [StargateFreak's Black Hole Cache](https://steamcommunity.com/sharedfiles/filedetails/?id=139990402).
 
 The model used is [Mikki](https://steamcommunity.com/profiles/76561198098764577)'s [Atomic Generator](https://steamcommunity.com/sharedfiles/filedetails/?id=1319372842), all original credit for it goes to them.
+
+Sound effects obtained from [ZapSplat](https://www.zapsplat.com) under their [Standard License](https://www.zapsplat.com/license-type/standard-license/).
 
 ## License
 
