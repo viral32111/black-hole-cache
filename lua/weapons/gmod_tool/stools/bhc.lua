@@ -35,19 +35,36 @@ end
 function TOOL.BuildCPanel( panel )
 
 	local resourceLayout = vgui.Create( "DListLayout", panel )
-	resourceLayout:SetSize( 100, 100 )
-	resourceLayout:SetPos( 20, 50 )
-	resourceLayout:SetPaintBackground( true )
-	resourceLayout:SetBackgroundColor( Color( 0, 100, 100 ) )
+	resourceLayout:SetSize( 100, 300 ) -- idk if this is needed
+	resourceLayout:SetPos( 20, 50 ) -- idk if this is needed
+	resourceLayout:DockMargin( 10, 10, 10, 10 )
+	resourceLayout:Dock( TOP )
+	resourceLayout:SetPaintBackgroundEnabled( false )
 
-	for i = 1, 8 do
-		resourceLayout:Add( Label( " Label " .. i ) )
-	end
+		local panel = vgui.Create( "DPanel", resourceLayout )
+		panel:Dock( TOP )
+		panel:SetPaintBackgroundEnabled( false )
 
-	--[[local addButton = vgui.Create( "DButton", panel )
-	addButton:SetText()
-	addButton:SetIcon( "icon16/add.png" )
-	addButton:Dock( TOP )]]
-	
+			local remove = vgui.Create( "DButton", panel )
+			remove:SetSize( 24, 22 )
+			remove:Dock( RIGHT )
+			remove:SetText( "" )
+			remove:SetIcon( "icon16/cancel.png" )
+			remove:SetTooltip( "Remove this resource." )
 
+			local combobox = vgui.Create( "DComboBox", panel )
+			combobox:Dock( FILL )
+			combobox:DockMargin( 0, 0, 5, 0 )
+			for index = 1, #resourceList do
+				combobox:AddChoice( resourceList[ index ], resourceList[ index ], ( index == 1 and true or false ), "icon16/plugin.png" )
+			end
+
+		local add = vgui.Create( "DButton", panel )
+		add:SetSize( 24, 22 )
+		add:Dock( RIGHT )
+		add:SetText( "" )
+		add:SetIcon( "icon16/add.png" )
+		resourceLayout:Add( add )
+
+	resourceLayout:Add( panel )
 end
